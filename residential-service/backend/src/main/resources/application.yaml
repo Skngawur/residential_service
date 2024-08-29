@@ -1,0 +1,48 @@
+server:
+  shutdown: "graceful"
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+  mustache:
+    check-template-location: false
+  application:
+    name: residential-management
+  profiles:
+    active: prod
+
+logging:
+  level:
+    root: INFO
+    id.application: DEBUG
+    org.hibernate.SQL: DEBUG
+    com.zaxxer.hikari.HikariConfig: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    org.springframework.jdbc.core.StatementCreatorUtils: TRACE
+    reactor.netty.http.client: DEBUG
+    org.atmosphere: WARN
+  pattern:
+    level: "%5p [appName=${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      enabled: true
+
+jwt:
+  secretKey: WHO8SCGSXPK8VFBO2LH5N5HOMH65L5X6OR74AX0N02E82R0CGHK5KGCIDUU4YQM2K4WP3
+
+cloud:
+  name: journal-florist
+  key: 718635641258268
+  secret: KYip6UFwF92tp_QUU4BO3Nr8TOU

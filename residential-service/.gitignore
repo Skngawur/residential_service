@@ -1,0 +1,7 @@
+.vscode
+.gradle
+.idea
+backend/build
+node_modules
+frontend/node_modules
+vite.generated.ts
